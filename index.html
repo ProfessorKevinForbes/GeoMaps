@@ -18,7 +18,24 @@
     function onDeviceReady() {
         // Throw an error if no update is received every 30 seconds
         var options = { timeout: 30000 };
-        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+        
+	navigator.geolocation.getCurrentPosition(setupMap, onError);
+	
+	watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+	
+	
+    }
+
+    function setupMap(position) {
+	var latLong = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	var mapOptions = {
+		center:latLong,
+		zoom:16,
+		mapTypeId:google.maps.MapTypeId.ROADMAP
+	};
+	var map = new google.maps.Map(document.getElementById("geolocation"), mapoptions);
+
+
     }
 
     function clearWatch() {
@@ -32,10 +49,8 @@
     // onSuccess Geolocation
     //
     function onSuccess(position) {
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                            'Longitude: ' + position.coords.longitude     + '<br />' +
-                            '<hr />'      + element.innerHTML;
+        //var element = document.getElementById('geolocation2');
+
     }
 
         // onError Callback receives a PositionError object
@@ -48,9 +63,8 @@
     </script>
   </head>
   <body>
-    <button onclick="clearWatch();">Clear Watch</button>
-
-    <p id="geolocation">Watching geolocation...</p>
+    <div id="geolocation" style="width:640px; height: 1136px;">
+    </div>
   </body>
 
 </html>
