@@ -40,6 +40,18 @@
 	var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         map.setCenter(pos);
 
+         var marker = new google.maps.Marker({
+            position: LatLng,
+            map: map,
+            title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
+        });
+
+        google.maps.event.addListener(marker, "click", function (e) {
+            var infoWindow = new google.maps.InfoWindow();
+            infoWindow.setContent(marker.title);
+            infoWindow.open(map, marker);
+        });
+
     }
 
         // onError Callback receives a PositionError object
