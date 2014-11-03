@@ -31,11 +31,12 @@
     function setupMap(position) {
 	//var latLong = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 	var latLong = new google.maps.LatLng(80, -117);
-	var mapOptions = {
+	/*var mapOptions = {
 		center:latLong,
 		zoom:16,
 		mapTypeId:google.maps.MapTypeId.ROADMAP
 	};
+*/
 	var map = new google.maps.Map(document.getElementById("geolocation"), mapoptions);
 
         google.maps.event.addDomListener(window, 'load', initialize);
