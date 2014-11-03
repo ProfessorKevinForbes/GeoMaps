@@ -41,9 +41,9 @@
         map.setCenter(pos);
 
          var marker = new google.maps.Marker({
-            position: LatLng,
+            position: pos,
             map: map,
-            title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
+            title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + position.coords.latitude + "<br />Longitude: " + position.coords.longitude + "</div"
         });
 
         google.maps.event.addListener(marker, "click", function (e) {
