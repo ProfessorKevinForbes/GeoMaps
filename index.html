@@ -21,13 +21,14 @@
         
 	navigator.geolocation.getCurrentPosition(setupMap, onError);
 	
-	watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+	//watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
 	
 	
     }
 
     function setupMap(position) {
-	var latLong = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	//var latLong = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	var latLong = new google.maps.LatLng(80, -117);
 	var mapOptions = {
 		center:latLong,
 		zoom:16,
